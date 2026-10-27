@@ -23,12 +23,16 @@ int main() {
 
   for (int indexInPhrase = 0; indexInPhrase < size(phrase); ++indexInPhrase) {
     currentLetter = phrase[indexInPhrase];
-
+    
     if (isalpha(currentLetter)) {
       result += currentLetter;
     }
   }
 
-  cout << result;
+  if (size(result) == 0) {
+    cout << "EMPTY";
+  } else {
+    cout << result;
+  }
   return 0;
 }
