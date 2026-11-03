@@ -79,7 +79,6 @@ int main() {
     cout << number << " ";
   }
 
-  // ===== Часть C — Ключ максимального значения =====
   map<string, int> dictionary;
   int countOfPairs;
   cin >> countOfPairs; 
@@ -101,9 +100,9 @@ int main() {
     cout << "NONE\n";
   } else {
     auto bestPair = dictionary.begin();
-    for (auto it = dictionary.begin(); it != dictionary.end(); ++it) {
-      if (it->second > bestPair->second) {
-        bestPair = it;
+    for (auto iterations = dictionary.begin(); iterations != dictionary.end(); ++iterations) {
+      if (iterations->second > bestPair->second) {
+        bestPair = iterations;
       }
     }
     cout << bestPair->first << " " << bestPair->second << "\n";
