@@ -18,9 +18,7 @@ int main() {
   constexpr int maxLenghth = 200;
 
   unsigned char currentLetter;
-  string phrase;
-  string result;
-
+  string phrase, result;
 
   if (!(getline(cin, phrase)) || size(phrase) > maxLenghth || size(phrase) < 1) {
     cout << "INVALID\n";
@@ -35,7 +33,7 @@ int main() {
     }
   }
 
-  if (size(result) == 0) {
+  if (result.empty()) {
     cout << "EMPTY";
   } else {
     cout << result;
@@ -81,11 +79,12 @@ int main() {
 
   map<string, int> dictionary;
   int countOfPairs;
-  cin >> countOfPairs; 
-
+  int value = 0;
+  string key;
+ 
+  cin >> countOfPairs;
+ 
   for (int indexOfPair = 0; indexOfPair < countOfPairs; ++indexOfPair) {
-    string key;
-    int value = 0;
 
     if (!(cin >> key >> value)) {
       cout << "INVALID\n";
