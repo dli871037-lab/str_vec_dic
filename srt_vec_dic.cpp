@@ -90,7 +90,7 @@ int main() {
   cout << "\nEntry count of pairs: ";
   cin >> countOfPairs;
   cout << "First - key" << endl
-    << "Second - value\n";
+       << "Second - value\n";
 
   for (int indexOfPair = 0; indexOfPair < countOfPairs; ++indexOfPair) {
 
