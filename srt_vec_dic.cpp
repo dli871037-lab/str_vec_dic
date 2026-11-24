@@ -1,9 +1,10 @@
 ﻿/*************************************
-* Автор: ДанИИл Ли                   *
+* Автор: Даниил Ли                   *
 * Задание: Строки, векторы и словари *
 * Вариант: 13                        *
 *************************************/
  
+
 #include <iostream>
 #include <map>
 #include <string>
@@ -16,9 +17,10 @@ int main() {
   constexpr int maxNumberMod = 1000;
   constexpr int maxCount = 100;
   constexpr int maxLenghth = 200;
-
   unsigned char currentLetter;
   string phrase, result;
+
+  cout << "Entry the phrase: ";
 
   if (!(getline(cin, phrase)) || size(phrase) > maxLenghth || size(phrase) < 1) {
     cout << "INVALID\n";
@@ -27,15 +29,16 @@ int main() {
 
   for (int indexInPhrase = 0; indexInPhrase < size(phrase); ++indexInPhrase) {
     currentLetter = phrase[indexInPhrase];
-    
+
     if (isalpha(currentLetter)) {
       result += currentLetter;
     }
   }
 
   if (result.empty()) {
-    cout << "EMPTY";
-  } else {
+    cout << "\nEMPTY";
+  }
+  else {
     cout << result;
   }
 
@@ -47,7 +50,7 @@ int main() {
   cout << "\nCount of numbers: ";
   cin >> countOfNumbers;
 
-  if (countOfNumbers > 99) {
+  if (countOfNumbers >= maxCount) {
     cout << "INVALID\n";
     return 2;
   }
@@ -56,7 +59,8 @@ int main() {
     if (!(cin >> number) || number > maxNumberMod || number < -maxNumberMod) {
       cout << "INVALID\n";
       return 2;
-    } else {
+    }
+    else {
       numbers.push_back(number);
     }
   }
@@ -72,18 +76,22 @@ int main() {
       break;
     }
   }
+  cout << "Without max element: ";
 
-  for (int number : numbers) {
-    cout << number << " ";
+  for (int& num : numbers) {
+    cout << num << " ";
   }
 
   map<string, int> dictionary;
   int countOfPairs;
   int value = 0;
   string key;
- 
+
+  cout << "\nEntry count of pairs: ";
   cin >> countOfPairs;
- 
+  cout << "First - key" << endl
+    << "Second - value\n";
+
   for (int indexOfPair = 0; indexOfPair < countOfPairs; ++indexOfPair) {
 
     if (!(cin >> key >> value)) {
@@ -93,18 +101,17 @@ int main() {
     dictionary[key] = value;
   }
 
-  cout << "\n";
-
   if (dictionary.empty()) {
     cout << "NONE\n";
-  } else {
+  }
+  else {
     auto bestPair = dictionary.begin();
     for (auto iterations = dictionary.begin(); iterations != dictionary.end(); ++iterations) {
       if (iterations->second > bestPair->second) {
         bestPair = iterations;
       }
     }
-    cout << bestPair->first << " " << bestPair->second << "\n";
+    cout << "Max value pair: " << bestPair->first << " " << bestPair->second;
   }
   return 0;
 }
